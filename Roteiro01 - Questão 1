@@ -1,0 +1,32 @@
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <locale>
+#include <math.h>
+using namespace std;
+
+int main(){
+setlocale(LC_ALL, "Portuguese");
+
+static int aux;
+int valor;
+
+cout << "Por favor, digite valores. Para encerrar, digite 0." << endl;
+cin >> valor;
+
+if(valor == 0){
+    cout << "Programa encerrado." << endl;
+    return 0;
+}
+
+while(valor != 0){
+    cin >> valor;
+    if (valor > aux){
+        aux = valor;
+    }
+}
+
+cout << "O maior número encontrado entre a lista de valores foi: " << fmax(valor, aux) << "." << endl;
+
+return 0;
+}
