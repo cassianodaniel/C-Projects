@@ -1,32 +1,67 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#define MAX_ARRAY 100
+#include <cmath>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
 
-# Precompiled Headers
-*.gch
-*.pch
+void digaOi(string name){
+    cout << "Olá, " << name;
+}
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+void digaOi2(){
+char daniel[MAX_ARRAY] = "Daniel";
+printf("Olá, %c", daniel);
+return;
+}
 
-# Fortran module files
-*.mod
-*.smod
+int main(){
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+string phrase = "Frase.\n";
+    for (int i = 0; i < '\n' ;i++){
+      cout << phrase[i];
+    }
 
-# Executables
-*.exe
-*.out
-*.app
+phrase[0] = 'T';
+phrase[3] = 'v';
+
+cout << phrase;
+
+cout << phrase.find("ave") /*retorna nº array de início*/ << endl;
+
+phrase = "Daniel Cassiano\n";
+
+cout << phrase.substr(2, 4) << endl; //pegando a partir do segundo caracter, 4 caracteres
+
+cout << phrase;
+
+cout << 10%3 << endl; //resto da dvs
+
+cout << round(3.9) << endl; //arredondamento
+
+
+// encontre o número máximo e mínimo entre os dois
+cout << fmax(3,10) << endl;
+
+cout << fmin(3,10) << endl;
+
+cout << "Enter your age: ";
+int age;
+cin >> age;
+
+cout << "You are " << age << " years old" << endl;
+
+string name;
+cout << "Enter your name: ";
+
+cin >> name;
+
+cout << "Hello, " << name << "." << endl;
+
+digaOi("Daniel");
+
+digaOi2();
+
+return 0;
+}
