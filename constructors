@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Book{
+    public:
+        string title;
+        string author;
+        int pages;
+        Book(string aTitle, string aAuthor, int aPages){
+            title = aTitle;
+            author = aAuthor;
+            pages = aPages;
+
+            cout << title;
+            cout << author;
+            cout << pages;
+        }
+
+
+};
+
+int main(){
+
+Book book1("Harry Potter\n", "JK Rowling\n", 500);
+
+return 0;
+}
