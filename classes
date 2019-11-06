@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+class Classname{
+    public:
+        string title;
+        string author;
+        int pages;
+
+};
+
+int main(){
+Classname book;
+
+book.title = "Classes em C++";
+book.author = "Daniel Cassiano";
+book.pages = 1;
+
+cout << book.title << endl;
+cout << book.author << endl;
+cout << book.pages << endl;
+
+return 0;
+}
