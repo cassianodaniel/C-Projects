@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+class Book{
+    public:
+        string title;
+        string author;
+        int pages;
+};
+
+class BookPlusSomething : public Book{
+BookPlusSomething color;
+color.author = "Branco"; //acessando a variável author
+};
+
+int main(){
+
+return 0;
+}
