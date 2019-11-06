@@ -1,0 +1,15 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+bool isMale;
+cin >> isMale;
+if(isMale){
+    cout << "You are a male.\n";
+}
+else if(!isMale){
+    cout << "You are a woman.\n";
+}
+return 0;
+}
