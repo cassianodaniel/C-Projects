@@ -1,0 +1,43 @@
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <locale>
+#include <math.h>
+
+using namespace std;
+
+int func(int a){
+int numero;
+cin >> numero;
+if(numero == a)return 1;
+if(numero > a)return 2;
+if(numero < a)return 3;}
+
+int main(){
+setlocale(LC_ALL, "Portuguese");
+int x;
+int a = rand() % 100;
+
+
+while(1){
+
+x = func(a);
+
+switch(x){
+    case 1:
+cout << "Parabéns, você acertou! O número é: " << a << endl;
+    return 0;
+
+    case 2:
+cout << "Muito alto!" << endl;
+    break;
+
+    case 3:
+cout << "Muito baixo!" << endl;
+    break;
+    }
+}
+// cout << "Por favor, digite um número." << endl;
+return 0;
+}
+
