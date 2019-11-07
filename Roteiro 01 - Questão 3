@@ -1,0 +1,40 @@
+//AINDA NÃO FUNCIONANDO
+
+//AINDA NÃO FUNCIONANDO
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale>
+
+using namespace std;
+
+int main(){
+
+setlocale(LC_ALL, "Portuguese");
+float um = 0, dois = 0, tres = 0, quatro = 0, cinco = 0, seis = 0;
+int num;
+cin >> num;
+
+for(int i=1;i<=num;++i){
+    int random = rand() % 6;
+        switch(random){
+            case 1: um++;
+            case 2: dois++;
+            case 3: tres++;
+            case 4: quatro++;
+            case 5: cinco++;
+            case 6: seis++;
+            default:
+            break;
+        }
+}
+    cout << "O lado 1 caiu: " << um/num * 100 << "% das vezes = " << um << "x." << endl;
+    cout << "O lado 2 caiu: " << dois/num * 100 << "% das vezes = " << dois << "x." << endl;
+    cout << "O lado 3 caiu: " << tres/num * 100 << "% das vezes = " << tres << "x." << endl;
+    cout << "O lado 4 caiu: " << quatro/num * 100 << "% das vezes = " << quatro << "x." << endl;
+    cout << "O lado 5 caiu: " << cinco/num * 100 << "% das vezes = " << cinco << "x." << endl;
+    cout << "O lado 6 caiu: " << seis/num * 100 << "% das vezes = " << seis << "x." << endl;
+
+return 0;
+}
