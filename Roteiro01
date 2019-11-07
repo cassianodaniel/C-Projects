@@ -1,0 +1,64 @@
+Universidade	Federal	da	Paraíba
+Centro	de	Informática
+Departamento	de	Informática
+Linguagem	de	Programação	1
+Semestre:	2019.2
+Professor:	Tiago	Maritan
+ROTEIRO	01
+ASSUNTO:	PRIMEIRO	CONTATO	COM	A	LINGUAGEM C++
+1) Escreva	um	 programa	em	C++ que recebe	 um	 conjunto	 de	valores inteiros,	 calcula	e	
+exibe	 o	 maior	 valor	 inserido.	 A	 entrada	 de	 dados	 deve	 parar	 quando	 for	 digitada	 o	
+valor	0	(zero).	
+2) (Adivinhe	o	número	– “imprensadinho”)		Escreva	um	programa	em	C++ que	escolhe	
+um	 “número	 a	 ser	 adivinhado”	 selecionando	 um	 inteiro	 aleatório	 entra	 1	 e	 100.	 	 O	
+programa	 deve	 exibe	 a	 mensagem	 “Adivinhe	 o	 número	 entre	 1	 e	 100”.	 O	 jogador	
+insere	então	sua	1ª	tentativa	de	adivinhação.	
+Se	 o	 palpite	 estiver	 incorreto,	 seu	 programa	 deve	 exibir	 a	 mensagem	 “Muito	 alto.	
+Tente	 novamente”	 ou	 “Muito	 baixo.	 Tente	 novamente”	 para	 ajudar	 o	 jogador	 a	
+encontrar	a	resposta	correta.		
+O	 programa	 deve	 solicitar	 ao	 jogador	 o	 próximo	 palpite	 até	 que	 o	 usuário	 insira	 a	
+resposta	 correta.	 Quando	 isso	 acontecer,	 exiba	 a	 mensagem	 “Parábens.	 Você	
+adivinhou	o	número”.
+Obs:	Crie	um	método	para	gerar	o	número	(pseudo-)aleatório	entre	1	e	100.
+Dica:	o	método	rand() gera	um	número	(pseudo-)aleatório	entre	0	e	1.
+3) Escreva	um	programa	em	C++ que simula	o lançamento	de um	dado	n	vezes	e	imprime	
+o	 percentual	 de	 surgimento	 de	 cada	 face	 do	 dado.	 O	 valor	 n	 é	 introduzido	 pelo	
+usuário,	sendo	que	0	encerra	o	programa.	
+4) Uma	 grande	 emissora	 de	 televisão	 quer	 fazer	 uma	 enquete	 entre	 os	 seus	
+telespectadores	para	saber	qual	o	melhor	jogador	após	cada	jogo.	Você	foi	contratado	
+para	desenvolver	o	programa	que	vai	computar	esses	votos	utilizando	a	linguagem	de	
+programação	C++.	Para	computar	cada	voto,	a	telefonista	digitará	um	número,	entre	1	
+e	23,	correspondente	ao	número	da	camisa	do	jogador.	Um	número	de	jogador	igual	
+zero	 indica	 que	 a	 votação	 foi	 encerrada.	 Se	 um	 número	 inválido	 for	 digitado,	 o	
+programa	 deve	 ignorá-lo,	 mostrando	 uma	 breve	 mensagem	 de	 aviso,	 e	 voltando	 a	
+pedir	outro	número.	Após	o	final	da	votação,	o	programa	deverá	exibir:	
+(a)	O	total	de	votos	computados;	
+(b)	Os números	e	respectivos	votos	de	todos	os	jogadores	que	receberam	votos;	
+(c)	O	percentual	de	votos de	cada	um	destes	jogadores;	
+(d)	O	 número	 do	 jogador	 escolhido	 como	 o	 melhor	 jogador	 da	 partida,	 juntamente	
+com	o	número	de	votos	e	o	percentual	de	votos	dados	a	ele.	
+Obs1:	Os	votos	inválidos	e	o	zero	final	não	devem	ser	computados	como	votos.	
+Obs2:	O	programa	deve	fazer	uso	de	arrays	e	o	resultado	deve	aparecer	ordenado	pelo	
+número	do	jogador.		
+Obs3: O	programa	deverá	executar	o	cálculo	do	percentual	de	cada	jogador	através	de	
+uma	função.	Esta	função	receberá	dois	parâmetros:	o	número	de	votos	de um	jogador	
+e	o	total	de	votos.	A	função	calculará	o	percentual	e	retornará	o	valor	calculado.	
+Abaixo	segue	uma	tela	de	exemplo	do	programa:
+Enquete: Quem foi o melhor jogador?
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 10
+Número do jogador (0=fim): 10
+Número do jogador (0=fim): 11
+Número do jogador (0=fim): 50
+Informe um valor entre 1 e 23 ou 0 para sair!
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 9
+Número do jogador (0=fim): 0
+Resultado da votação:
+Foram computados 6 votos.
+Jogador Votos %
+9 3 50,0%
+10 2 33,3%
+11 1 16,6%
+O melhor jogador foi o número 9, com 3 votos, correspondendo a 50%
+do total de votos.
