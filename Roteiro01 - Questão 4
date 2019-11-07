@@ -1,5 +1,7 @@
 //AINDA NÃO FUNCIONANDO
 
+//AINDA NÃO FUNCIONANDO
+
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,63 +10,60 @@
 
 using namespace std;
 
-struct svotos{
-int votos = 0;
+class Jogador{
+    public:
+        int votos;
 };
 
+void zera_votos(){
+    for (int i=1;i<24;i++){
+        Jogador.votos[i] = 0;}
+}
 
 
 int main(){
+
+zera_votos();
 setlocale(LC_ALL, "Portuguese");
-int num, tvotos = 0, melhorjogador, nvotosmelhorjogador;
-static int cont1 = 0;
-svotos jogadores[30];
+int num, melhorjogador, nvotosmelhorjogador;
+Jogador jogadores[22];
+static int qtvotos = 0;
 
 cout << "Por favor, digite um número entre 1 e 23. \nPara encerrar a votacao do programa, digite 0." << endl;
 cin >> num;
+qtvotos++;
 
 while(num<1 || num>23){
     cout << "Digite outro número de 1 a 23, por favor." << endl;
     cin >> num;
     }
-
-for(int i = 0; num != 0; i++){
-        cin >> num;
-        if(num == 1){
-            cont1++;
-        }
-        if (num == 0){
-            cout << '\n';
-        }
-        jogadores[num].votos++;
-        tvotos++;
-            if(num==0){
-                cout << "Votacao encerrada com sucesso." << endl;
-                cout << "Total de votos computados: " << tvotos << "." << endl;
-                cout << "Os números e respectivos votos de todos os jogadores que receberam votos: " << endl;
-                for(int j=2;j<= 23;j++){
-                    if (jogadores[j].votos != 0){
-                        cout << "O jogador número " << j << " obteve: " << jogadores[j].votos << " votos." << endl;
+    
+if(num==0){
+        cout << "Votacao encerrada com sucesso." << endl;
+        cout << "Total de votos computados: " << qtvotos << "." << endl;
+        cout << "Os números e respectivos votos de todos os jogadores que receberam votos: " << endl;
+            for(int i=0; i<23;i++){
+                    if (jogadores[i].votos != 0){
+                        cout << "O jogador número " << i << " obteve: " << jogadores[i].votos << " votos." << endl;
                     }
                 }
-
                 cout << "Percentual de votos de cada um destes jogadores:" << endl;
-                for(int k=1;k<24;k++){
-                cout << "Jogador " << k << ": " << (((jogadores[k].votos)/tvotos)*100) << "%" << endl;}
-/*
+                    for(int i=0;i<23;i++){
+                cout << "Jogador " << i << ": " << (((jogadores[i].votos)/votos)*100) << "%" << endl;}
+
                 cout << "Número	do jogador escolhido como o melhor jogador da partida, juntamente"
                 "com o número de votos e o percentual de votos dados a ele: " << endl;
 
-                for(int z=1;z<24;z++){
-                    if(tvotos/jogadores[z].votos > tvotos % jogadores[z--].votos){
-                        melhorjogador = z;
+                for(int i=0;i<23;i++){
+                    if(tvotos/jogadores[i].votos > tvotos % jogadores[i--].votos){
+                        melhorjogador = i;
                     }
                 }
 
                 cout << melhorjogador;
-                for(int x=1; x<24;x++){
-                    if(jogadores[x].votos > jogadores[x].votos--){
-                        nvotosmelhorjogador = jogadores[x].votos;
+                for(int i=0; i<23;i++){
+                    if(jogadores[i].votos > jogadores[i].votos--){
+                        nvotosmelhorjogador = jogadores[i].votos;
                     }
                 }
                 cout << nvotosmelhorjogador;
@@ -74,5 +73,5 @@ for(int i = 0; num != 0; i++){
 
 return 0;
 }
-*/
-return 0;}}}
+
+
