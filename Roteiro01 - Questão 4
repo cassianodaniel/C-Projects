@@ -6,63 +6,56 @@
 using namespace std;
 
 int main(){
-
 setlocale(LC_ALL, "Portuguese");
-int num, melhorjogador, nvotosmelhorjogador, maior;
-int jogadores[22] = {0};
+int num, nvotosmelhorjogador, maior = -1, vmaior, indiceMaior;
+int jogadores[23] = {0};
 static int qtvotos = 0;
 
 cout << "Por favor, digite um número entre 1 e 23. \nPara encerrar a votacao do programa, digite 0." << endl;
 
 do{cin >> num; //while(num !=0)
-qtvotos++;
-jogadores[num]++;
-if(num==0){
-    qtvotos--;
-        cout << "Votacao encerrada com sucesso." << endl;
-        cout << "Total de votos computados: " << qtvotos << "." << endl;
-        cout << "Os números e respectivos votos de todos os jogadores que receberam votos: " << endl;
-            for(int i=0; i<23;++i){
-                    if (jogadores[i] != 0){
-                        cout << "O jogador número " << i << " obteve: " << jogadores[i] << " votos." << endl;
-                    }
-                }
-                cout << "Percentual de votos de cada um destes jogadores:" << endl;
-                    for(int i=0;i<23;++i){ //PERCENTUAL DE VOTOS
-                        if((jogadores[i]/qtvotos) > (jogadores[i+1]/qtvotos)){
-                            cout << (jogadores[i]/qtvotos)*100 << endl;
-                        }
-                        else if((jogadores[i]/qtvotos) < (jogadores[i+1]/qtvotos)){
-                            cout << (jogadores[i+1]/qtvotos)*100 << endl;
-                        }
-                    }
 
-                for(int i=0;i<23;++i){ //MELHOR JOGADOR DA PARTIDA
-                    if(jogadores[i] > jogadores[i+1]){
-                            maior = i;}
-                    else if(jogadores[i] < jogadores[i+1]){
-                                    maior = i+1;
+    if(num > 23 || num < 0){
+            cout << "Por favor, digite um número entre 1 e 23. \nPara encerrar a votacao do programa, digite 0." << endl;
+            continue;
+        }
+
+            if(num > 0 && num < 24){
+                qtvotos++; //entre um e 23
+                jogadores[num]++;
+            }
+
+                if(num==0){
+
+                    cout << "Votacao encerrada com sucesso." << endl;
+                    cout << "Total de votos computados: " << qtvotos << "." << endl;
+                    cout << "Os números e respectivos votos de todos os jogadores que receberam votos: " << endl;
+
+                        for(int i=0; i<23;++i){
+                                if (jogadores[i] != 0){
+                                    cout << "O jogador número " << i << " obteve: " << jogadores[i] << " votos." << endl;
                                 }
-                }
-                    maior = melhorjogador;
-                    cout << "Este é o número do melhor jogador da partida:" << melhorjogador << endl;
+                            }
 
-                for(int i=0; i<23;++i){
-                    if(jogadores[i] > jogadores[i]--){
-                        nvotosmelhorjogador = jogadores[i];
-                    }
-                }
-                    cout << "Este é o número de votos do melhor jogador: " << nvotosmelhorjogador << endl;
-                    cout << "Percentual de votos do melhor jogador:" << endl;
+                                cout << "Percentual de votos de cada um destes jogadores:" << endl;
+                                    for(int i=0;i<23;++i){ //PERCENTUAL DE VOTOS
+                                            if(jogadores[i] > 0){
+                                            cout << ((double)jogadores[i]/qtvotos)*100 << endl;
+                                        }
+                                    }
 
-                for(int i=0;i<23;++i){ //PERCENTUAL DE VOTOS
-                    if((jogadores[maior]/qtvotos) > (jogadores[i+1]/qtvotos)){
-                        cout << ((jogadores[i]/qtvotos)*100) << "%" << endl;
-                    }
-                        else if((jogadores[i]/qtvotos) < (jogadores[i+1]/qtvotos)){
-                            cout << ((jogadores[i+1]/qtvotos)*100) << endl;
-                        }
-                }
+                                        for(int i=0;i<23;++i){ //MELHOR JOGADOR DA PARTIDA
+
+                                            if(jogadores[i] > maior){
+                                                maior = jogadores[i];
+                                                indiceMaior = i;
+                                            }
+                                        }
+
+                                            cout << "Este é o número do melhor jogador da partida:" << indiceMaior << endl;
+                                            cout << "Este é o número de votos do melhor jogador: " << maior << endl;
+                                            cout << "Percentual de votos do melhor jogador:" << ((double)maior/qtvotos)*100 << endl;
+
     }
 }
 while(num!=0);
