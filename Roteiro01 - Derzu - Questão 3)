@@ -1,0 +1,43 @@
+//construtores não estão funcionando
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <locale.h>
+
+using namespace std;
+
+class Empregado{
+    public:
+        string Nome;
+        string Sobrenome;
+        double Salario;
+        Empregado(string nome,string sobrenome,double salario){
+            Nome = nome;
+            Sobrenome = sobrenome;
+            Salario = salario;
+            }
+                string getNome(){
+                    return Nome;
+                }
+                string getSobrenome(){
+                    return Sobrenome;
+                }
+                double getSalario(){
+                    return Salario;
+                }
+                void setNome(string varsetnome){
+                    Nome = varsetnome;
+                }
+                void setSobrenome(string varsetsobrenome){
+                    Sobrenome = varsetsobrenome;
+                }
+                void setSalario(double varsetsalario){
+                    Salario = varsetsalario;
+                }
+};
+
+int main(){
+setlocale(LC_ALL, "Portuguese");
+Empregado empregadonumero1("Scooby", "Doo", 20000);
+return 0;}
