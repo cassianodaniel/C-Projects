@@ -1,0 +1,86 @@
+//main.cpp_____________________________
+#include <iostream>
+#include "classefuncionario.h"
+#include <string>
+
+using namespace std;
+
+int main()
+{
+  Funcionario *empregado1 = new Funcionario("Daniel", "Cassiano", 20000);
+
+  cout << "Nome: " << empregado1->getNome() << " " << empregado1->getSobrenome() << endl;
+  cout << "Salario anual: " << empregado1->SalarioAnual() << endl;
+  cout << "Salario anual com aumento: " << empregado1->AumentoSalarioAnual() << endl;
+}
+________________________________________
+//classefuncionario.h
+#ifndef CLASSEFUNCIONARIO_H
+#define CLASSEFUNCIONARIO_H
+#include <string>
+
+using namespace std;
+
+class Funcionario{
+    public:
+        string Nome, Sobrenome;
+        double Salario;
+        double SalarioAnual();
+        double AumentoSalarioAnual();
+        Funcionario(string,string,double);
+        string getNome();
+        string getSobrenome();
+        double getSalario();
+        void setNome(string varsetnome);
+        void setSobrenome(string varsetsobrenome);
+        void setSalario(double varsetsalario);
+};
+
+#endif
+
+______________________________________________
+//classefuncionario.cpp
+
+#include "classefuncionario.h"
+
+Funcionario::Funcionario(string nome,string sobrenome, double salario){
+    string Nome;
+    string Sobrenome;
+    double Salario;
+    Nome = nome;
+    Sobrenome = sobrenome;
+    Salario = salario;
+}
+
+double Funcionario::SalarioAnual(){
+    return Salario*12;
+}
+
+double Funcionario::AumentoSalarioAnual(){
+    return ((Salario*12) + ((Salario*12)/10));
+}
+
+string Funcionario::getNome(){
+    return this->Nome;
+}
+string Funcionario::getSobrenome(){
+    return Sobrenome;
+}
+double Funcionario::getSalario(){
+    return Salario;
+}
+void Funcionario::setNome(string varsetnome){
+    Nome = varsetnome;
+}
+void Funcionario::setSobrenome(string varsetsobrenome){
+    Sobrenome = varsetsobrenome;
+}
+void Funcionario::setSalario(double varsetsalario){
+    if(Salario >= 0){
+    Salario = varsetsalario;
+    }
+    else if(Salario < 0){
+        puts("Salário mensal não positibo e não configurado.");
+    }
+}
+__________________________________________________
