@@ -22,31 +22,34 @@ ________________________________________
 using namespace std;
 
 class Funcionario{
-    public:
+    private:
         string Nome, Sobrenome;
         double Salario;
-        double SalarioAnual();
-        double AumentoSalarioAnual();
-        Funcionario(string,string,double);
-        string getNome();
-        string getSobrenome();
-        double getSalario();
-        void setNome(string varsetnome);
-        void setSobrenome(string varsetsobrenome);
-        void setSalario(double varsetsalario);
+            public:
+                double SalarioAnual();
+                double AumentoSalarioAnual();
+                Funcionario();
+                Funcionario(string,string,double);
+                string getNome();
+                string getSobrenome();
+                double getSalario();
+                void setNome(string varsetnome);
+                void setSobrenome(string varsetsobrenome);
+                void setSalario(double varsetsalario);
 };
 
 #endif
-
-
 ______________________________________________
 //classefuncionario.cpp
 #include "classefuncionario.h"
 
-Funcionario::Funcionario(string nome,string sobrenome, double salario){
+Funcionario::Funcionario(){
     string Nome = ".";
     string Sobrenome = ".";
     double Salario = 1;
+}
+
+Funcionario::Funcionario(string nome,string sobrenome, double salario){
     Nome = nome;
     Sobrenome = sobrenome;
     Salario = salario;
