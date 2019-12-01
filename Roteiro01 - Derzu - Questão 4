@@ -1,0 +1,101 @@
+//main.cpp
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include <Pessoa.h>
+
+using namespace std;
+
+int main()
+{
+Pessoa *pessoa1 = new Pessoa("Daniel", 15, "99835-4294");
+pessoa1->setIdade(19);
+pessoa1->setNome("Ludwig van Beethoven");
+pessoa1->setTelefone("4002-8922");
+
+cout << "Nome: " << pessoa1->getNome() << endl;
+cout << "Idade: " << pessoa1->getIdade() << endl;
+cout << "Telefone: " << pessoa1->getTelefone() << endl;
+
+return 0;
+}
+____________________________________________________________
+//Pessoa.h
+
+#ifndef PESSOA_H
+#define PESSOA_H
+#include <string>
+
+using namespace std;
+
+class Pessoa
+{
+    public:
+        Pessoa(string, int, string);
+        Pessoa(string);
+        string getNome();
+        int getIdade();
+        string getTelefone();
+        void setNome(string nome);
+        void setIdade(int idade);
+        void setTelefone(string telefone);
+        virtual ~Pessoa();
+    private:
+        string Nome;
+        int Idade;
+        string Telefone;
+};
+
+#endif // PESSOA_H
+____________________________________________________________
+//Pessoa.cpp
+
+#include "Pessoa.h"
+#include <string>
+
+using namespace std;
+
+Pessoa::Pessoa(string nome)
+{
+    Nome = nome;
+    int Idade = 1;
+    string Telefone = "Não disponível";
+}
+
+Pessoa::Pessoa(string nome, int idade, string telefone)
+{
+    Nome = nome;
+    Idade = idade;
+    Telefone = telefone;
+}
+
+string Pessoa::getNome(){
+return Nome;
+}
+
+int Pessoa::getIdade(){
+return Idade;
+}
+
+string Pessoa::getTelefone(){
+return Telefone;
+}
+
+void Pessoa::setNome(string nome){
+nome = this->Nome;
+}
+
+void Pessoa::setIdade(int idade){
+idade = this->Idade;
+}
+
+void Pessoa::setTelefone(string telefone){
+telefone = this->Telefone;
+}
+
+Pessoa::~Pessoa()
+{
+    //dtor
+}
