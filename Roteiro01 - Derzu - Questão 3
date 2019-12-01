@@ -38,15 +38,15 @@ class Funcionario{
 
 #endif
 
+
 ______________________________________________
 //classefuncionario.cpp
-
 #include "classefuncionario.h"
 
 Funcionario::Funcionario(string nome,string sobrenome, double salario){
-    string Nome;
-    string Sobrenome;
-    double Salario;
+    string Nome = ".";
+    string Sobrenome = ".";
+    double Salario = 1;
     Nome = nome;
     Sobrenome = sobrenome;
     Salario = salario;
@@ -83,4 +83,3 @@ void Funcionario::setSalario(double varsetsalario){
         puts("Salário mensal não positibo e não configurado.");
     }
 }
-__________________________________________________
