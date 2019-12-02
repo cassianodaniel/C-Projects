@@ -13,6 +13,7 @@ int main()
   cout << "Salario anual: " << empregado1->SalarioAnual() << endl;
   cout << "Salario anual com aumento: " << empregado1->AumentoSalarioAnual() << endl;
 }
+
 ________________________________________
 //classefuncionario.h
 #ifndef CLASSEFUNCIONARIO_H
@@ -39,9 +40,12 @@ class Funcionario{
 };
 
 #endif
+
 ______________________________________________
+
 //classefuncionario.cpp
 #include "classefuncionario.h"
+#include <iostream>
 
 Funcionario::Funcionario(){
     string Nome = ".";
@@ -70,7 +74,12 @@ string Funcionario::getSobrenome(){
     return Sobrenome;
 }
 double Funcionario::getSalario(){
-    return Salario;
+    if(Salario >= 0){
+        return Salario;
+    }
+    else {cout << "Salário não configurado";
+        return 0.0;
+    }
 }
 void Funcionario::setNome(string varsetnome){
     Nome = varsetnome;
@@ -83,6 +92,6 @@ void Funcionario::setSalario(double varsetsalario){
     Salario = varsetsalario;
     }
     else if(Salario < 0){
-        puts("Salário mensal não positibo e não configurado.");
+        cout << ("Salário mensal não positivo e não configurado.");
     }
 }
