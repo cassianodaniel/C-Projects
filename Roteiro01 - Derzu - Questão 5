@@ -1,8 +1,8 @@
 //main.cpp
 #include <iostream>
 #include <string>
-#include <Despesa.h>
-#include <ControleDeGastos.h>
+#include "Despesa.h"
+#include "ControleDeGastos.h"
 
 using namespace std;
 
@@ -10,27 +10,19 @@ int main()
 {
     ControleDeGastos objeto1 = ControleDeGastos();
 
-    Despesa d1 = Despesa();
-    Despesa d2 = Despesa();
-    Despesa d3 = Despesa();
-
-    d1.setValor(10);
-    d1.setTipoDeGasto("Notebook");
-
-    d2.setValor(30);
-    d2.setTipoDeGasto("Headphones");
-
-    d3.setValor(5);
-    d3.setTipoDeGasto("Mousepads");
+    Despesa d1 = Despesa(300, "Notebook");
+    Despesa d2 = Despesa(20, "Casa");
+    Despesa d3 = Despesa(20, "Jóias");
 
     objeto1.setDespesa(d1, 0);
-    objeto1.setDespesa(d1, 1);
-    objeto1.setDespesa(d1, 2);
+    objeto1.setDespesa(d2, 1);  
+    objeto1.setDespesa(d3, 2);
 
     cout << objeto1.calculaTotalDeDespesas() <<endl;
 
     return 0;
 }
+
 _____________________________________________________
 //Despesa.h
 
@@ -45,7 +37,6 @@ class Despesa
     public:
         Despesa();
         Despesa(double, string);
-        virtual ~Despesa();
         double getValor();
         void setValor(double);
         string getTipoDeGasto();
@@ -58,10 +49,10 @@ class Despesa
 };
 
 #endif //DESPESA_H
+
 ________________________________________________
 //Despesa.cpp
 
-#include "Despesa.h"
 #include "ControleDeGastos.h"
 #include <string>
 
@@ -87,13 +78,14 @@ using namespace std;
     void Despesa::setTipoDeGasto(string tipodegasto){
         TipoDeGasto = tipodegasto;
     }
+
 ________________________________________________
 //ControleDeGastos.h
 
 #ifndef CONTROLEDEGASTOS_H
 #define CONTROLEDEGASTOS_H
-#include <Despesa.h>
 #include <string>
+#include "Despesa.h"
 
 using namespace std;
 
@@ -101,23 +93,21 @@ class ControleDeGastos
 {
     public:
         ControleDeGastos();
-        virtual ~ControleDeGastos();
         void setDespesa(Despesa d, int pos);
         double calculaTotalDeDespesas();
         bool existeDespesaDoTipo(string);
     protected:
 
     private:
-        static Despesa despesas[100];
-
+        Despesa despesas[100];
 };
 
 #endif // CONTROLEDEGASTOS_H
+
 _________________________________________
 //ControleDeGastos.cpp
 
 #include "ControleDeGastos.h"
-#include "Despesa.h"
 #include <string>
 
 using namespace std;
@@ -133,7 +123,7 @@ void ControleDeGastos::setDespesa(Despesa d, int pos)
 
 double ControleDeGastos::calculaTotalDeDespesas()
 {
-    double soma;
+    double soma = 0;
     for(int i=0; i<100; i++)
     {
         soma += despesas[i].getValor();
