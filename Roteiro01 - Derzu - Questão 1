@@ -1,3 +1,18 @@
+//main.cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include "Data.h"
+
+using namespace std;
+
+int main(){
+setlocale(LC_ALL, "Portuguese");
+Data book1(26,04,2019);
+return 0;}
+___________________________________________________
+//Data.h
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -12,6 +27,7 @@ class Data{
         int Dia;
         int Mes;
         int Ano;
+        Data();
         Data(int dia,int mes,int ano){
             Dia = dia;
             Mes = mes;
@@ -43,18 +59,16 @@ class Data{
             }
         cout << "Sua nova data é: " << Dia << "/" << Mes << "/" << Ano << "!" << endl;
     }
-}
+};
 #endif;
+______________________________________
+//Data.cpp
+#include "Data.h"
 
-//main.cpp
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-#include Data.h
+Data::Data()
+{
+    Data::Dia = 1;
+    Data::Mes = 1;
+    Data::Ano = 1990;
+}
 
-using namespace stdio;
-
-int main(){
-setlocale(LC_ALL, "Portuguese");
-Data book1(26,04,2020);
-return 0;}
