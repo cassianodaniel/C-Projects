@@ -1,0 +1,156 @@
+//main.cpp
+
+#include <iostream>
+#include <string>
+#include <Pagamento.h>
+#include <ControleDePagamentos.h>
+
+using namespace std;
+
+int main()
+{
+
+    ControleDePagamentos objeto1;
+    Pagamento objeto2 = Pagamento(200.5, "Salsicha");
+    objeto1.setPagamentos(objeto2, 0);
+
+    Pagamento objeto3 = Pagamento(220.5, "Coca-cola");
+    objeto1.setPagamentos(objeto3, 1);
+
+    cout << objeto2.getValorPagamento() << endl;
+    cout << objeto3.getValorPagamento() << endl;
+    cout << objeto1.calculaTotalDePagamentos() << endl;
+    return 0;
+}
+
+_____________________________________________________________
+
+//Pagamento.h
+
+#ifndef PAGAMENTO_H
+#define PAGAMENTO_H
+#include <string>
+
+using namespace std;
+
+class Pagamento
+{
+    public:
+        Pagamento();
+        Pagamento(double, string);
+        virtual ~Pagamento();
+        double getValorPagamento();
+        void setValorPagamento(double);
+        string getNomedoFuncionario();
+        void setNomedoFuncionario(string);
+
+
+    protected:
+
+    private:
+    double valorPagamento;
+    string nomeDoFuncionario;
+};
+
+#endif // PAGAMENTO_H
+
+________________________________________________
+//Pagamento.cpp
+
+#include "Pagamento.h"
+#include <string>
+#include "ControleDePagamentos.h"
+
+using namespace std;
+
+Pagamento::Pagamento()
+{
+    this->valorPagamento = 0;
+    this->nomeDoFuncionario = ".";
+}
+
+Pagamento::Pagamento(double valor, string nome){
+    this->valorPagamento = valor;
+    this->nomeDoFuncionario = nome;
+}
+
+double Pagamento::getValorPagamento(){
+    return this->valorPagamento;
+}
+void Pagamento::setValorPagamento(double pagamento){
+    this->valorPagamento = pagamento;
+}
+string Pagamento::getNomedoFuncionario(){
+    return this->nomeDoFuncionario;
+}
+void Pagamento::setNomedoFuncionario(string nome){
+    this->nomeDoFuncionario = nome;
+}
+
+Pagamento::~Pagamento()
+{
+    //dtor
+}
+______________________________________________________
+//ControleDePagamentos.h
+
+#ifndef CONTROLEDEPAGAMENTOS_H
+#define CONTROLEDEPAGAMENTOS_H
+#include <string>
+#include "Pagamento.h"
+
+using namespace std;
+
+class ControleDePagamentos
+{
+    public:
+        ControleDePagamentos();
+        ControleDePagamentos(double, string);
+        virtual ~ControleDePagamentos();
+        void setPagamentos(Pagamento, int);
+        double calculaTotalDePagamentos();
+        bool existePagamentoParaFuncionario(string);
+
+    protected:
+
+    private:
+    Pagamento pagamentos[100];
+};
+
+#endif // CONTROLEDEPAGAMENTOS_H
+_____________________________________________
+//ControleDePagamentos.cpp
+
+#include "ControleDePagamentos.h"
+#include <string>
+
+using namespace std;
+ControleDePagamentos::ControleDePagamentos()
+{
+    //ctor
+}
+void ControleDePagamentos::setPagamentos(Pagamento p, int pos){
+    pagamentos[pos] = p;
+}
+double ControleDePagamentos::calculaTotalDePagamentos(){
+    double x;
+    for(int i=0; i<100; i++){
+        x += pagamentos[i].getValorPagamento();
+    }
+    return x;
+}
+bool ControleDePagamentos::existePagamentoParaFuncionario(string nomeFuncionario){
+    for(int i=0; i<100; i++){
+        if (this->pagamentos[i].getNomedoFuncionario() == nomeFuncionario){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
+
+ControleDePagamentos::~ControleDePagamentos()
+{
+    //dtor
+}
