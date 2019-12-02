@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <locale.h>
+#ifndef DATA_H
+#define DATA_H
 
 using namespace std;
 
@@ -41,7 +43,16 @@ class Data{
             }
         cout << "Sua nova data é: " << Dia << "/" << Mes << "/" << Ano << "!" << endl;
     }
-};
+}
+#endif;
+
+//main.cpp
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include Data.h
+
+using namespace stdio;
 
 int main(){
 setlocale(LC_ALL, "Portuguese");
