@@ -10,17 +10,18 @@ using namespace std;
 
 int main()
 {
-Pessoa *pessoa1 = new Pessoa("Daniel", 15, "99835-4294");
-pessoa1->setIdade(19);
-pessoa1->setNome("Ludwig van Beethoven");
-pessoa1->setTelefone("4002-8922");
+Pessoa pessoa1 = Pessoa("Daniel", 15, "99835-4294");
+pessoa1.setIdade(19);
+pessoa1.setNome("Ludwig van Beethoven");
+pessoa1.setTelefone("4002-8922");
 
-cout << "Nome: " << pessoa1->getNome() << endl;
-cout << "Idade: " << pessoa1->getIdade() << endl;
-cout << "Telefone: " << pessoa1->getTelefone() << endl;
+cout << "Nome: " << pessoa1.getNome() << endl;
+cout << "Idade: " << pessoa1.getIdade() << endl;
+cout << "Telefone: " << pessoa1.getTelefone() << endl;
 
 return 0;
 }
+
 ____________________________________________________________
 //Pessoa.h
 
@@ -33,8 +34,9 @@ using namespace std;
 class Pessoa
 {
     public:
-        Pessoa(string, int, string);
+        Pessoa();
         Pessoa(string);
+        Pessoa(string, int, string);
         string getNome();
         int getIdade();
         string getTelefone();
@@ -49,6 +51,7 @@ class Pessoa
 };
 
 #endif // PESSOA_H
+
 ____________________________________________________________
 //Pessoa.cpp
 
@@ -56,6 +59,13 @@ ____________________________________________________________
 #include <string>
 
 using namespace std;
+
+Pessoa::Pessoa()
+{
+    this->Nome = ".";
+    this->Idade = 0;
+    this->Telefone = "0";
+}
 
 Pessoa::Pessoa(string nome)
 {
@@ -72,27 +82,27 @@ Pessoa::Pessoa(string nome, int idade, string telefone)
 }
 
 string Pessoa::getNome(){
-return Nome;
+return this->Nome;
 }
 
 int Pessoa::getIdade(){
-return Idade;
+return this->Idade;
 }
 
 string Pessoa::getTelefone(){
-return Telefone;
+return this->Telefone;
 }
 
 void Pessoa::setNome(string nome){
-nome = this->Nome;
+this->Nome = nome;
 }
 
 void Pessoa::setIdade(int idade){
-idade = this->Idade;
+this->Idade = idade;
 }
 
 void Pessoa::setTelefone(string telefone){
-telefone = this->Telefone;
+this->Telefone = telefone;
 }
 
 Pessoa::~Pessoa()
