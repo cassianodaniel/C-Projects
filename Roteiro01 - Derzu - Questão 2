@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+    Invoice();
     Invoice objeto1 = Invoice(1,"Daniel", 1, 2.5);
     cout << objeto1.getNumero() << endl;
     cout << objeto1.getDescricao() << endl;
@@ -15,8 +16,9 @@ int main()
     cout << objeto1.getItem() << endl;
     return 0;
 }
+
 ____________________
-//.h
+//Invoice.h
 
 #ifndef INVOICE_H
 #define INVOICE_H
@@ -38,7 +40,6 @@ class Invoice
         double getItem();
         void setItem(double item);
         double getInvoiceAmount();
-
     protected:
 
     private:
@@ -49,8 +50,9 @@ class Invoice
 };
 
 #endif // INVOICE_H
+
 ___________________
-//.cpp
+//Invoice.cpp
 
 #include "Invoice.h"
 #include <string>
@@ -64,10 +66,10 @@ using namespace std;
         double Item = 0.0;
     }
     Invoice::Invoice(int numero, string descricao, int quantidade, double item){
-        numero = this->Numero;
-        descricao = this->Descricao;
-        quantidade = this->Quantidade;
-        item = this->Item;
+        this->Numero = numero;
+        this->Descricao = descricao;
+        this->Quantidade = quantidade;
+        this->Item = item;
     }
 
     int Invoice::getNumero(){
