@@ -1,0 +1,122 @@
+Conversão de Números para Strings
+
+A conversão de um número para uma string em C++ é feita através de  string streams.
+
+As string streams são derivações das streams de arquivos e tem seu funcionamento muito semelhante a estes. Para criar uma string stream deve-se declarar um objeto da classe stringstream, da seguinte forma:
+
+#include <sstream>
+using std::stringstream;
+....
+......
+stringstream buffer;
+
+A partir desta declaração pode-se inserir números (inteiros ou reais) na variável que representa o fluxo, utilizando para isto, o mesmo operador de inserção "<<" utilizado com o objeto cout.
+
+buffer << 12.4;
+
+A partir deste comando o número é convertido para uma string e armazenado dentro da stream.
+Para obter o conteúdo do que está armazenado na stream, usa-se o método stringstream::str(), conforme o exemplo abaixo.
+
+string s1;
+s1 = buffer.str();
+cout << "Saida:" << s1 << endl;
+
+A cada comando de inserção, o conteúdo da stream é acrescido do dado que está sendo inserido, não havendo a perda das informações já inseridas. O trecho abaixo, por exemplo, imprime, lado a lado, os valores inseridos na stream.
+
+
+#include <sstream>
+
+using std::string;
+using std::stringstream;
+
+......
+.......
+...
+
+stringstream buffer;
+string s1;
+
+f = 123.45;
+
+buffer << f ; // insere o primeiro dado
+
+buffer << -987;  // insere o segundo dado
+
+s1 = buffer.str();
+
+cout << "Saida:" << s1 << endl;
+
+Resultado da execução:
+Saida:123.45-987
+
+
+
+Para limpar uma string stream deve-se usar o método stringstream::str(), que serve também para subtituir o valor atual armazenado na stream por um novo valor, passado por parâmetro para o método. Observe o exemplo abaixo.
+
+
+#include <sstream>
+
+using std::string;
+using std::stringstream;
+
+......
+.......
+...
+
+stringstream buffer;
+string s1;
+buffer << 124; // coloca um dado no fluxo
+buffer.str(""); // limpa o fluxo
+buffer << 546; // coloca um novo dado no fluxo
+
+s1 = buffer.str();
+
+cout << "Saida:" << s1 << endl;
+
+Resultado da execução:
+Saida:546
+
+Além de números, também se pode inserir strings ou caracteres nas string streams. Neste caso, este dados são apenas copiados para dentro da stream, sem que haja qualquer conversão.
+
+Para formatar os números inseridos no fluxo pode-se utilizar os mesmos comandos utilizados com o cout.  Observe o exemplo abaixo.
+
+#include <iomanip> // necessário para a formatação dos números
+#include <sstream>
+
+using std::string;
+using std::stringstream;
+
+......
+.......
+...
+string s1;
+stringstream buffer;
+
+f = 12;
+buffer << f ;
+buffer << " dividido por " << setw(3) << 7 << " vale " << fixed << setprecision(3) << f/7;
+
+s1 = buffer.str();
+
+cout << "Saida:" << s1 << endl;
+
+Resultado da execução:
+Saida:12 dividido por   7 vale 1.714
+
+
+
+Conversão de Strings para Números
+      
+        Para converter o conteúdo de uma string para um ou mais números, usa-se a string stream com o operador de extração ">>", conforme o exemplo a seguir.
+
+buffer << "124  2.45";
+int i;
+double b;
+
+buffer >> i >> b;
+cout << "I: " << i << endl;
+cout << "B: " << b << endl;
+
+Resultado da execução:
+I: 124
+B: 2.45
