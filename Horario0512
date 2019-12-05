@@ -1,0 +1,86 @@
+//main.cpp
+#include <iostream>
+#include "Horario.h"
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello world!" << endl;
+    return 0;
+}
+//Horario.h
+#ifndef HORARIO_H
+#define HORARIO_H
+
+class Horario
+{
+    public:
+        Horario();
+        Horario(int,int,int);
+        virtual ~Horario();
+
+    protected:
+        int Hora;
+        int Minuto;
+        int Segundo;
+    private:
+};
+#endif // HORARIO_H
+//Horario.cpp
+#include "Horario.h"
+
+Horario::Horario()
+{
+    Hora = 0;
+    Minuto = 0;
+    Segundo = 0;
+}
+
+Horario::Horario(int h,int m,int s)
+{
+    //______________________________
+    //CONDICIONAIS PRÉ-DETERMINADOS
+    if(h >= 24){
+        this->Hora = 0;
+        this->Minuto = 0;
+        this->Segundo = 0;
+    }
+    if(m >= 60){
+        this->Hora = 0;
+        this->Minuto = 0;
+        this->Segundo = 0;
+    }
+    if(s >= 60){
+        this->Hora = 0;
+        this->Minuto = 0;
+        this->Segundo = 0;
+    }
+    //______________________________
+
+    if(h<=23){
+        Hora = h;
+    }
+    else if(h >= 24){
+        Hora = 0;
+        Minuto = 0;
+        Segundo = 0;
+    }
+
+    if(m <=59){
+        Minuto = m;
+    }else if(m == 60){
+        Hora += 1;
+    }
+
+    if(s <= 59){
+        Segundo = s;
+    }else if(s == 60){
+        Minuto += 1;
+    }
+}
+
+Horario::~Horario()
+{
+    //dtor
+}
