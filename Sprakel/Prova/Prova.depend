@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\asus\desktop\sprakel\prova\main.cpp
+	<iostream>
+
+1585003898 source:c:\users\asus\desktop\sprakel\prova\src\cliente.cpp
+	"Cliente.h"
+
+1585005040 c:\users\asus\desktop\sprakel\prova\include\cliente.h
+	"Pedido.h"
+	<string>
+
+1585005685 c:\users\asus\desktop\sprakel\prova\include\pedido.h
+	"ItemDePedido.h"
+	"Cliente.h"
+
+1585005685 c:\users\asus\desktop\sprakel\prova\include\controlepedidos.h
+	"IControlePedidos.h"
+	"Pedido.h"
+
+1585005150 c:\users\asus\desktop\sprakel\prova\include\icontrolepedidos.h
+	"Pedido.h"
+
+1585003809 source:c:\users\asus\desktop\sprakel\prova\src\controlepedidos.cpp
+	"ControlePedidos.h"
+
+1585003802 source:c:\users\asus\desktop\sprakel\prova\src\icontrolepedidos.cpp
+	"IControlePedidos.h"
+
+1585003839 source:c:\users\asus\desktop\sprakel\prova\src\itemdepedido.cpp
+	"ItemDePedido.h"
+
+1585005579 c:\users\asus\desktop\sprakel\prova\include\itemdepedido.h
+	"Pedido.h"
+
+1585003824 source:c:\users\asus\desktop\sprakel\prova\src\pedido.cpp
+	"Pedido.h"
+
